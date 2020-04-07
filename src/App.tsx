@@ -1,22 +1,13 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import styles from "./test.module.css";
+import { SignIn } from "./modules/auth/SignIn";
+import { ResponsiveDrawer } from "./modules/menu/ResponsiveDrawer";
 
 const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" /> <div></div>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+        {/* <SignIn /> */}
+        <ResponsiveDrawer />
     </div>
   );
 }
