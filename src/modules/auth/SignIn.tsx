@@ -6,8 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import boy from "../../resources/boy.svg"
-import { Copyright } from '../../components/copyright/Copyright';
-import { Box } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -78,9 +76,6 @@ export const SignIn = () => {
                     </Button>
                 </form>
             </div>
-            <Box mt={8}>
-                <Copyright />
-            </Box>
         </Container>
     )
 }
