@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -8,12 +8,12 @@ import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import { Hidden } from '@material-ui/core';
+import { Hidden, Button } from '@material-ui/core';
 import classnames from "classnames";
 import { ItemListDrawer } from '../../components/itemDrawer/ItemListDrawer';
 import { ItemDrawer } from '../../components/itemDrawer/ItemDrawer';
 import { IDictionary } from '../../utils/interfaces';
-import { Link } from 'react-router-dom';
+import { Profile } from '../../components/profile/Profile';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -53,7 +53,8 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: theme.spacing(3),
     },
     profile: {
-      marginLeft: 'auto'
+      marginLeft: 'auto',
+      display: 'flex',
     },
   }),
 );
@@ -65,32 +66,26 @@ export const ResponsiveDrawer = (props: ResponsiveDrawerProps) => {
   const { container } = props;
   const classes = useStyles();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [selectedIndex, setSelectedIndex] = useState(0);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-  const handleListItemClick = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    index: number,
-  ) => {
-    setSelectedIndex(index);
-  };
+
 
   const directories: IDictionary<string>[] = [
-    {'pharmacy':'Аптеки'}, 
-    {'preparations':'Препараты'}, 
-    {'code': 'Код АТН'}, 
-    {'produced': 'Производители'}, 
-    {'region': 'Регионы'}, 
-    {'types_region': 'Типы регионов'}]
+    { 'pharmacy': 'Аптеки' },
+    { 'preparations': 'Препараты' },
+    { 'code': 'Код АТН' },
+    { 'produced': 'Производители' },
+    { 'region': 'Регионы' },
+    { 'types_region': 'Типы регионов' }]
   const administration: IDictionary<string>[] = [
-    {'users': 'Пользователи'}, 
-    {'roles': 'Роли'}, 
-    {'methods': 'Методы'}, 
-    {'access': 'Доступ по ролям'}, 
-    {'logs': 'Логи'}]
-  const reports: IDictionary<string>[] = [{'charts': 'Графики'}]
+    { 'users': 'Пользователи' },
+    { 'roles': 'Роли' },
+    { 'methods': 'Методы' },
+    { 'access': 'Доступ по ролям' },
+    { 'logs': 'Логи' }]
+  const reports: IDictionary<string>[] = [{ 'charts': 'Графики' }]
 
   const drawer = (
     <div>
@@ -99,23 +94,14 @@ export const ResponsiveDrawer = (props: ResponsiveDrawerProps) => {
       <ItemDrawer
         title={"Главная"}
         link={"main"}
-        rowIndex={0}
-        selectedIndex={selectedIndex}
-        handleListItemClick={handleListItemClick}
       />
       <ItemDrawer
         title={"Продажи"}
         link={"sales"}
-        rowIndex={1}
-        selectedIndex={selectedIndex}
-        handleListItemClick={handleListItemClick}
       />
       <ItemDrawer
         title={"Склады"}
         link={"warehouse"}
-        rowIndex={2}
-        selectedIndex={selectedIndex}
-        handleListItemClick={handleListItemClick}
       />
       <ItemListDrawer title={"Отчеты"} listItems={reports} />
       <ItemListDrawer title={"Справочники"} listItems={directories} />
@@ -141,7 +127,8 @@ export const ResponsiveDrawer = (props: ResponsiveDrawerProps) => {
             Responsive drawer
           </Typography>
           <Typography className={classes.profile}>
-            profile
+            <Profile />
+            <Button color="inherit">Выйти</Button>
           </Typography>
         </Toolbar>
       </AppBar>

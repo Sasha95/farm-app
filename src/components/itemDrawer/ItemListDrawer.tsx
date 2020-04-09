@@ -6,7 +6,7 @@ import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import { useStylesDrawer, LinkStyles } from "./ItemDrawerStyles";
-import { Link } from "react-router-dom";
+import { Link, matchPath, useLocation } from "react-router-dom";
 import { IDictionary } from "../../utils/interfaces";
 
 interface IProps {
@@ -18,15 +18,8 @@ export const ItemListDrawer: FC<IProps> = ({ title, listItems }) => {
   const classes = useStylesDrawer();
   const links = LinkStyles();
   const [open, setOpen] = useState(false);
-  const [selectedIndex, setSelectedIndex] = useState(-1);
 
-  const handleListItemClick = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    index: number,
-  ) => {
-    setSelectedIndex(index);
-  };
-
+  const location = useLocation();
   const handleClick = () => {
     setOpen(!open);
   };
@@ -48,8 +41,7 @@ export const ItemListDrawer: FC<IProps> = ({ title, listItems }) => {
               <ListItem
                 button
                 className={classes.nested}
-                selected={selectedIndex === index}
-                onClick={(event) => handleListItemClick(event, index)}>
+                selected={!!matchPath(location.pathname, `/${Object.keys(item)[0]}`)}>
                 <ListItemText primary={Object.values(item)[0]} key={index} />
               </ListItem>
             </Link>

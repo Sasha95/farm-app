@@ -3,19 +3,17 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { useStylesDrawer, LinkStyles } from "./ItemDrawerStyles";
-import { Link } from "react-router-dom";
+import { Link, useLocation, matchPath } from "react-router-dom";
 
 interface IProps {
     title: string;
-    rowIndex: number;
-    selectedIndex: number;
     link: string;
-    handleListItemClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>, rowIndex: number) => void;
 }
 
-export const ItemDrawer: FC<IProps> = ({ title, rowIndex, selectedIndex, link, handleListItemClick }) => {
+export const ItemDrawer: FC<IProps> = ({ title, link }) => {
     const classes = useStylesDrawer();
     const links = LinkStyles();
+    const location = useLocation();
 
     return (
         <List
@@ -26,8 +24,7 @@ export const ItemDrawer: FC<IProps> = ({ title, rowIndex, selectedIndex, link, h
             <Link className={links.link} to={`/${link}`}>
                 <ListItem
                     button
-                    selected={selectedIndex === rowIndex}
-                    onClick={(event) => handleListItemClick(event, rowIndex)}>
+                    selected={!!matchPath(location.pathname, `/${link}`)}>
                     <ListItemText primary={title} />
                 </ListItem>
             </Link>
