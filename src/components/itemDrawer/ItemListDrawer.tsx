@@ -37,7 +37,7 @@ export const ItemListDrawer: FC<IProps> = ({ title, listItems }) => {
       <Collapse in={open} timeout="auto" unmountOnExit>
         {listItems.map((item, index) => (
           <List component="div" disablePadding>
-            <Link className={links.link} to={`/${Object.keys(item)[0]}`}>
+            <Link className={links.link} to={`/farm-app/${Object.keys(item)[0]}`}>
               <ListItem
                 button
                 className={classes.nested}

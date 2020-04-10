@@ -21,7 +21,7 @@ export const ItemDrawer: FC<IProps> = ({ title, link }) => {
             aria-labelledby="nested-list-subheader"
             className={classes.root}
         >
-            <Link className={links.link} to={`/${link}`}>
+            <Link className={links.link} to={`/farm-app/${link}`}>
                 <ListItem
                     button
                     selected={!!matchPath(location.pathname, `/${link}`)}>
