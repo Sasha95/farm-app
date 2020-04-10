@@ -3,15 +3,20 @@ import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import { Typography, makeStyles, Theme, createStyles } from '@material-ui/core';
+import { Typography, makeStyles, Theme, createStyles, Button } from '@material-ui/core';
 
-// const useStyles = makeStyles((theme: Theme) =>
-//   createStyles({
-//     card: {
-//       display: 'flex',
-//       justifyContent: 'center',
-//     }
-// }))
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        card: {
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            margin: '10px',
+        },
+        img: {
+            justifyContent: 'center',
+        }
+    }))
 
 export const Profile = () => {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -34,7 +39,7 @@ export const Profile = () => {
                 onClick={handleMenu}
                 color="inherit"
             >
-            <Typography>Карточка пользователя</Typography>
+                <Typography>Карточка пользователя</Typography>
             </IconButton>
             <Menu
                 id="menu-appbar"
@@ -50,10 +55,14 @@ export const Profile = () => {
                 }}
                 open={open}
                 onClose={handleClose}
+
             >
-                <AccountCircle fontSize={"large"} />
-                <MenuItem onClick={handleClose}>ФИО</MenuItem>
-                <MenuItem onClick={handleClose}>Роль</MenuItem>
+                <div className={classes.card}>
+                    <MenuItem className={classes.img} onClick={handleClose}><AccountCircle /></MenuItem>
+                    <MenuItem onClick={handleClose}>Чолак Александр</MenuItem>
+                    <MenuItem onClick={handleClose}>Админ</MenuItem>
+                    <Button color="inherit">Выйти</Button>
+                </div>
             </Menu>
         </div>
     )
