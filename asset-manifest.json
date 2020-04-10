@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/farm-app/static/css/main.5f361e03.chunk.css",
-    "main.js": "/farm-app/static/js/main.75d65cc3.chunk.js",
-    "main.js.map": "/farm-app/static/js/main.75d65cc3.chunk.js.map",
+    "main.js": "/farm-app/static/js/main.a60546d2.chunk.js",
+    "main.js.map": "/farm-app/static/js/main.a60546d2.chunk.js.map",
     "runtime-main.js": "/farm-app/static/js/runtime-main.78fbc112.js",
     "runtime-main.js.map": "/farm-app/static/js/runtime-main.78fbc112.js.map",
     "static/js/2.4dbafed8.chunk.js": "/farm-app/static/js/2.4dbafed8.chunk.js",
     "static/js/2.4dbafed8.chunk.js.map": "/farm-app/static/js/2.4dbafed8.chunk.js.map",
     "index.html": "/farm-app/index.html",
-    "precache-manifest.aaaf1cf62a1e4f7ed07433cb5310d253.js": "/farm-app/precache-manifest.aaaf1cf62a1e4f7ed07433cb5310d253.js",
+    "precache-manifest.5e7e1f91f8eacac6316815a17276bac5.js": "/farm-app/precache-manifest.5e7e1f91f8eacac6316815a17276bac5.js",
     "service-worker.js": "/farm-app/service-worker.js",
     "static/css/main.5f361e03.chunk.css.map": "/farm-app/static/css/main.5f361e03.chunk.css.map",
     "static/js/2.4dbafed8.chunk.js.LICENSE.txt": "/farm-app/static/js/2.4dbafed8.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.78fbc112.js",
     "static/js/2.4dbafed8.chunk.js",
     "static/css/main.5f361e03.chunk.css",
-    "static/js/main.75d65cc3.chunk.js"
+    "static/js/main.a60546d2.chunk.js"
   ]
 }
