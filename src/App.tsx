@@ -8,7 +8,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="farm-app/">
+        <Route path="/farm-app/">
           <ResponsiveDrawer />
         </Route>
         {/* <Route path="/">
