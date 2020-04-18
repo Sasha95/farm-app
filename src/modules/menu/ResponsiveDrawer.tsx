@@ -8,13 +8,13 @@ import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import { Hidden, Button } from '@material-ui/core';
+import { Hidden } from '@material-ui/core';
 import classnames from "classnames";
 import { ItemListDrawer } from '../../components/itemDrawer/ItemListDrawer';
 import { ItemDrawer } from '../../components/itemDrawer/ItemDrawer';
 import { IDictionary } from '../../utils/interfaces';
 import { Profile } from '../../components/profile/Profile';
-import { MainTable } from '../../components/tables/MainTable';
+import { Sales } from '../sales/Sales';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -165,7 +165,7 @@ export const ResponsiveDrawer = (props: ResponsiveDrawerProps) => {
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Typography paragraph>
-          <MainTable />
+          <Sales />
         </Typography>
       </main>
     </div>
