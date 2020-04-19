@@ -1,6 +1,6 @@
-export interface IRegion {
+export interface IVendor {
     id: number;
     name: string;
-    population: number;
+    isDomestic: boolean;
     isDeleted: boolean;
 }

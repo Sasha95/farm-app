@@ -17,7 +17,7 @@ interface IProps {
 export const ItemListDrawer: FC<IProps> = ({ title, listItems }) => {
   const classes = useStylesDrawer();
   const links = LinkStyles();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   const location = useLocation();
   const handleClick = () => {
@@ -36,7 +36,7 @@ export const ItemListDrawer: FC<IProps> = ({ title, listItems }) => {
 
       <Collapse in={open} timeout="auto" unmountOnExit>
         {listItems.map((item, index) => (
-          <List component="div" disablePadding>
+          <List key={index} component="div" disablePadding>
             <Link className={links.link} to={`/farm-app/${Object.keys(item)[0]}`}>
               <ListItem
                 button

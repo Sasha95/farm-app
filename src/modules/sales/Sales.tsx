@@ -1,7 +1,7 @@
 import React from "react"
 import { Typography } from "@material-ui/core"
 import { employees } from "../../resources/data";
-import { TreeList, Editing, Column, RequiredRule, Lookup } from 'devextreme-react/tree-list';
+import { TreeList, Editing, Column, RequiredRule, Lookup, SearchPanel } from 'devextreme-react/tree-list';
 
 const expandedRowKeys = [1, 2, 3, 4, 5];
 
@@ -46,6 +46,7 @@ export const Sales = () => {
                     onEditorPreparing={onEditorPreparing}
                     onInitNewRow={onInitNewRow}
                 >
+                    <SearchPanel visible={true} />
                     <Editing
                         allowUpdating={true}
                         allowDeleting={true}

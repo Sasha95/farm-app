@@ -15,6 +15,19 @@ import { ItemDrawer } from '../../components/itemDrawer/ItemDrawer';
 import { IDictionary } from '../../utils/interfaces';
 import { Profile } from '../../components/profile/Profile';
 import { Sales } from '../sales/Sales';
+import { Route } from 'react-router-dom';
+import { Role } from '../administration/role/Role';
+import { Greeting } from '../greeting/Greeting';
+import { Warehouse } from '../warehouse/Warehouse';
+import { Chart } from '../reports/chart/Chart';
+import { Pharmacy } from '../directories/pharmacy/Pharmacy';
+import { Preparations } from '../directories/preparation/Preparations';
+import { ATH } from '../directories/ath/ATH';
+import { Produced } from '../directories/produced.tsx/Produced';
+import { Region } from '../directories/region/Region';
+import { User } from '../administration/user/User';
+import { Method } from '../administration/method/Method';
+import { Log } from '../administration/log/Log';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -78,13 +91,11 @@ export const ResponsiveDrawer = (props: ResponsiveDrawerProps) => {
     { 'preparations': 'Препараты' },
     { 'code': 'Код АТН' },
     { 'produced': 'Производители' },
-    { 'region': 'Регионы' },
-    { 'types_region': 'Типы регионов' }]
+    { 'region': 'Регионы' }]
   const administration: IDictionary<string>[] = [
     { 'users': 'Пользователи' },
     { 'roles': 'Роли' },
     { 'methods': 'Методы' },
-    { 'access': 'Доступ по ролям' },
     { 'logs': 'Логи' }]
   const reports: IDictionary<string>[] = [{ 'charts': 'Графики' }]
 
@@ -165,7 +176,45 @@ export const ResponsiveDrawer = (props: ResponsiveDrawerProps) => {
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Typography paragraph>
-          <Sales />
+        <Route path={"/farm-app/main/"}>
+            <Greeting />
+          </Route> 
+          <Route path={"/farm-app/sales/"}>
+            <Sales />
+          </Route>
+          <Route path={"/farm-app/warehouse/"}>
+            <Warehouse />
+          </Route>
+          <Route path={"/farm-app/charts/"}>
+            <Chart />
+          </Route>
+          <Route path={"/farm-app/pharmacy/"}>
+            <Pharmacy />
+          </Route>
+          <Route path={"/farm-app/preparations/"}>
+            <Preparations />
+          </Route>
+          <Route path={"/farm-app/code/"}>
+            <ATH />
+          </Route>
+          <Route path={"/farm-app/produced/"}>
+            <Produced />
+          </Route>
+          <Route path={"/farm-app/region/"}>
+            <Region />
+          </Route>
+          <Route path={"/farm-app/users/"}>
+            <User />
+          </Route>
+          <Route path={"/farm-app/roles/"}>
+            <Role />
+          </Route>
+          <Route path={"/farm-app/methods/"}>
+            <Method />
+          </Route>
+          <Route path={"/farm-app/logs/"}>
+            <Log />
+          </Route>
         </Typography>
       </main>
     </div>
