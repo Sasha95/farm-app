@@ -1,6 +1,6 @@
 import React from "react"
 import { Typography } from "@material-ui/core"
-import TreeList, { Editing, SearchPanel, Column, RequiredRule, Selection, Sorting, Scrolling, Paging, Pager, ColumnChooser } from "devextreme-react/tree-list"
+import TreeList, { Editing, SearchPanel, Column, RequiredRule, Selection, Sorting, Scrolling, Paging, Pager } from "devextreme-react/tree-list"
 import { users } from "../../../api/mock/users"
 
 const allowedPageSizes = [5, 10, 20];
@@ -30,7 +30,7 @@ export const User = () => {
                 <Scrolling mode="standard" />
                 <Paging
                     enabled={true}
-                    defaultPageSize={10} />
+                    defaultPageSize={5} />
                 <Pager
                     showPageSizeSelector={true}
                     allowedPageSizes={allowedPageSizes}

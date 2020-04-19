@@ -1,16 +1,14 @@
 import React from "react"
 import { Typography } from "@material-ui/core"
-import { employees } from "../../resources/data";
-import { TreeList, Editing, Column, RequiredRule, Lookup, SearchPanel } from 'devextreme-react/tree-list';
+import TreeList, { Editing, SearchPanel, Column, RequiredRule, Selection, Sorting, Scrolling, Paging, Pager, HeaderFilter, FilterRow } from "devextreme-react/tree-list"
+import { sales } from "../../api/mock/sales"
 
-const expandedRowKeys = [1, 2, 3, 4, 5];
-
-const headDataSource = {
-    store: employees,
-    sort: 'Full_Name'
-};
+function getOrderDay(rowData: any) {
+    return (new Date(rowData.OrderDate)).getDay();
+}
 
 export const Sales = () => {
+    const allowedPageSizes = [5, 10, 20];
     const onCellPrepared = (e: any) => {
         if (e.column.command === 'edit') {
             let addLink = e.cellElement.querySelector('.dx-link-add');
@@ -21,63 +19,113 @@ export const Sales = () => {
         }
     }
 
-    const onEditorPreparing = (e: any) => {
-        if (e.dataField === 'Head_ID' && e.row.data.ID === 1) {
-            e.cancel = true;
+    const calculateFilterExpression = (value: any, selectedFilterOperations: any, target: any) => {
+        let column = 'date';
+        if (target === 'headerFilter' && value === 'weekends') {
+            return [[getOrderDay, '=', 0], 'or', [getOrderDay, '=', 6]];
         }
+        // return column.defaultCalculateFilterExpression.apply('date', arguments);
     }
-    const onInitNewRow = (e: any) => {
-        e.data.Head_ID = 1;
+    const orderHeaderFilter = (data: any) => {
+        data.dataSource.postProcess = (results: any) => {
+            results.push({
+                text: 'Weekends',
+                value: 'weekends'
+            });
+            return results;
+        };
     }
-
     return (
         <Typography>
-            <div id="tree-list-demo">
-                <TreeList
-                    id="employees"
-                    dataSource={employees}
-                    showRowLines={true}
-                    showBorders={true}
-                    columnAutoWidth={true}
-                    defaultExpandedRowKeys={expandedRowKeys}
-                    keyExpr="ID"
-                    parentIdExpr="Head_ID"
-                    onCellPrepared={onCellPrepared}
-                    onEditorPreparing={onEditorPreparing}
-                    onInitNewRow={onInitNewRow}
-                >
-                    <SearchPanel visible={true} />
-                    <Editing
-                        allowUpdating={true}
-                        allowDeleting={true}
-                        allowAdding={true}
-                        mode="row" />
-                    <Column
-                        dataField="Full_Name">
-                        <RequiredRule />
-                    </Column>
-                    <Column
-                        dataField="Head_ID"
-                        caption="Head">
-                        <Lookup
-                            dataSource={headDataSource}
-                            valueExpr="ID"
-                            displayExpr="Full_Name" />
-                        <RequiredRule />
-                    </Column>
-                    <Column
-                        dataField="Title"
-                        caption="Position">
-                        <RequiredRule />
-                    </Column>
-                    <Column
-                        width={120}
-                        dataField="Hire_Date"
-                        dataType="date">
-                        <RequiredRule />
-                    </Column>
-                </TreeList>
-            </div>
+            <TreeList
+                id="sales"
+                dataSource={sales}
+                showRowLines={true}
+                showBorders={true}
+                columnAutoWidth={true}
+                keyExpr="id"
+                onCellPrepared={onCellPrepared}
+            >
+                <HeaderFilter visible={true} />
+                {/* <FilterRow applyFilter={{
+                    key: 'auto',
+                    name: 'Immediately'
+                }}
+                    visible={true}
+                /> */}
+                <Scrolling mode="standard" />
+                <Paging
+                    enabled={true}
+                    defaultPageSize={5} />
+                <Pager
+                    showPageSizeSelector={true}
+                    allowedPageSizes={allowedPageSizes}
+                    showInfo={true} />
+                <Sorting mode="multiple" />
+                <Selection mode="single" />
+                <SearchPanel visible={true} />
+                <Editing
+                    allowUpdating={true}
+                    allowDeleting={true}
+                    allowAdding={true}
+                    mode="row"
+                />
+                <Column
+                    caption={"Номер"}
+                    visible={false}
+                    dataField={"id"}>
+                </Column>
+                <Column
+                    caption={"Название препарата"}
+                    dataField={"drug.name"}>
+                    <RequiredRule />
+                </Column>
+                <Column
+                    caption={"Название аптеки"}
+                    dataField={"pharmacy.name"}>
+                    <RequiredRule />
+                </Column>
+                <Column
+                    alignment="right"
+                    dataType="date"
+                    allowHeaderFiltering={false}
+                    calculateFilterExpression={calculateFilterExpression}
+                    caption={"Дата продажи"}
+                    dataField={"date"}>
+                    <RequiredRule />
+                    {/* <HeaderFilter dataSource={orderHeaderFilter} /> */}
+                </Column>
+                <Column
+                    allowHeaderFiltering={false}
+                    caption={"Цена за ед."}
+                    dataField={"price"}>
+                    <RequiredRule />
+                </Column>
+                <Column
+                    allowHeaderFiltering={false}
+                    caption={"Кол-во"}
+                    dataField={"quantity"}>
+                    <RequiredRule />
+                </Column>
+                <Column
+                    allowHeaderFiltering={false}
+                    caption={"Сумма"}
+                    dataField={"amount"}>
+                    <RequiredRule />
+                </Column>
+                <Column
+                    allowHeaderFiltering={false}
+                    caption={"Дисконт"}
+                    dataType="boolean"
+                    dataField={"isDiscount"}>
+                </Column>
+                <Column
+                    allowHeaderFiltering={false}
+                    caption={"Удалена"}
+                    dataType="boolean"
+                    dataField={"isDeleted"}>
+                </Column>
+            </TreeList>
         </Typography>
     )
 }

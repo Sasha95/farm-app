@@ -18,7 +18,6 @@ import { Sales } from '../sales/Sales';
 import { Route } from 'react-router-dom';
 import { Role } from '../administration/role/Role';
 import { Greeting } from '../greeting/Greeting';
-import { Warehouse } from '../warehouse/Warehouse';
 import { Chart } from '../reports/chart/Chart';
 import { Pharmacy } from '../directories/pharmacy/Pharmacy';
 import { Preparations } from '../directories/preparation/Preparations';
@@ -111,10 +110,6 @@ export const ResponsiveDrawer = (props: ResponsiveDrawerProps) => {
         title={"Продажи"}
         link={"sales"}
       />
-      <ItemDrawer
-        title={"Склады"}
-        link={"warehouse"}
-      />
       <ItemListDrawer title={"Отчеты"} listItems={reports} />
       <ItemListDrawer title={"Справочники"} listItems={directories} />
       <ItemListDrawer title={"Администрирование"} listItems={administration} />
@@ -176,14 +171,11 @@ export const ResponsiveDrawer = (props: ResponsiveDrawerProps) => {
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Typography paragraph>
-        <Route path={"/farm-app/main/"}>
+          <Route path={"/farm-app/main/"}>
             <Greeting />
-          </Route> 
+          </Route>
           <Route path={"/farm-app/sales/"}>
             <Sales />
-          </Route>
-          <Route path={"/farm-app/warehouse/"}>
-            <Warehouse />
           </Route>
           <Route path={"/farm-app/charts/"}>
             <Chart />
