@@ -1,7 +1,7 @@
 import { IRole } from "./Role";
 
 export interface IUser {
-  id: number | null;
+  id: number;
   firstName: string;
   lastName: string;
   userName: string;

@@ -13,7 +13,6 @@ export const Role = () => {
                 showBorders={true}
                 columnAutoWidth={true}
                 keyExpr="id"
-                parentIdExpr="Head_ID"
             >
                 <Sorting mode="multiple" />
                 <Selection mode="single" />
@@ -26,7 +25,7 @@ export const Role = () => {
                 <Column
                     caption={"Номер"}
                     dataType={"number"}
-                    alignment="left"
+                    visible={false}
                     dataField={"id"}>
                     <RequiredRule />
                 </Column>
