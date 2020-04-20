@@ -27,6 +27,7 @@ import { Region } from '../directories/region/Region';
 import { User } from '../administration/user/User';
 import { Method } from '../administration/method/Method';
 import { Log } from '../administration/log/Log';
+import { AccessRole } from '../administration/accessRoles/AccessRole';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -95,6 +96,7 @@ export const ResponsiveDrawer = (props: ResponsiveDrawerProps) => {
     { 'users': 'Пользователи' },
     { 'roles': 'Роли' },
     { 'methods': 'Методы' },
+    { 'access': 'Доступ по ролям' },
     { 'logs': 'Логи' }]
   const reports: IDictionary<string>[] = [{ 'charts': 'Графики' }]
 
@@ -203,6 +205,9 @@ export const ResponsiveDrawer = (props: ResponsiveDrawerProps) => {
           </Route>
           <Route path={"/farm-app/methods/"}>
             <Method />
+          </Route>
+          <Route path={"/farm-app/access/"}>
+            <AccessRole />
           </Route>
           <Route path={"/farm-app/logs/"}>
             <Log />

@@ -5,15 +5,7 @@ import { pharmacies } from "../../../api/mock/pharmacies"
 
 export const Pharmacy = () => {
     const allowedPageSizes = [5, 10, 20];
-    const onCellPrepared = (e: any) => {
-        if (e.column.command === 'edit') {
-            let addLink = e.cellElement.querySelector('.dx-link-add');
 
-            if (addLink) {
-                addLink.remove();
-            }
-        }
-    }
     return (
         <Typography>
             <TreeList
@@ -24,8 +16,8 @@ export const Pharmacy = () => {
                 columnAutoWidth={true}
                 keyExpr="id"
                 rootValue={1}
+                autoExpandAll={true}
                 parentIdExpr="parentId"
-                onCellPrepared={onCellPrepared}
             >
                 <Scrolling mode="standard" />
                 <Paging
@@ -50,7 +42,6 @@ export const Pharmacy = () => {
                     dataType={"number"}
                     visible={false}
                     dataField={"id"}>
-                    <RequiredRule />
                 </Column>
                 <Column
                     caption={"Название аптеки"}

@@ -1,33 +1,29 @@
 import React from "react"
 import { Typography } from "@material-ui/core"
-import TreeList, { Editing, SearchPanel, Column, RequiredRule, Selection, Sorting, FilterRow, Pager, Paging, Scrolling, Lookup } from "devextreme-react/tree-list"
-import { regions } from "../../../api/mock/region"
+import TreeList, { Editing, SearchPanel, Column, RequiredRule, Selection, Sorting } from "devextreme-react/tree-list"
+import { apimethodroles } from "../../../api/mock/apimethodroles"
 
-const allowedPageSizes = [5, 10, 20];
-const expandedRowKeys = [1];
+export const AccessRole = () => {
+    const onCellPrepared = (e: any) => {
+        if (e.column.command === 'edit') {
+            let addLink = e.cellElement.querySelector('.dx-link-add');
 
-export const Region = () => {
+            if (addLink) {
+                addLink.remove();
+            }
+        }
+    }
     return(
         <Typography>
         <TreeList
-            id="regions"
-            dataSource={regions}
-            rootValue={-1}
-            defaultExpandedRowKeys={expandedRowKeys}
+            id="apimethodroles"
+            dataSource={apimethodroles}
             showRowLines={true}
             showBorders={true}
             columnAutoWidth={true}
-            parentIdExpr="parentId"
+            keyExpr="id"
+            onCellPrepared={onCellPrepared}
         >
-            <Scrolling mode="standard" />
-            <Paging
-                enabled={true}
-                defaultPageSize={5} />
-            <Pager
-                showPageSizeSelector={true}
-                allowedPageSizes={allowedPageSizes}
-                showInfo={true} />
-            <FilterRow visible={true} />
             <Sorting mode="multiple" />
             <Selection mode="single" />
             <SearchPanel visible={true} />
@@ -44,15 +40,15 @@ export const Region = () => {
                 dataField={"id"}>
             </Column>
             <Column
-                caption={"Название региона"}
+                caption={"Метод"}
                 dataType={"string"}
-                dataField={"name"}>
+                dataField={"apiMethod.name"}>
                 <RequiredRule />
             </Column>
             <Column
-                caption={"Численность населения"}
-                dataType={"number"}
-                dataField={"population"}>
+                caption={"Роль"}
+                dataType={"string"}
+                dataField={"role.name"}>
                 <RequiredRule />
             </Column>
             <Column

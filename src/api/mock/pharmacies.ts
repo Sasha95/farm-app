@@ -6,6 +6,8 @@ export const pharmacies: IPharmacy[] = [
     parentId: -1,
     region: {
       id: 1,
+      parentId: -1,
+
       name: "Тирасполь",
       population: 200000,
       isDeleted: false,
@@ -21,11 +23,13 @@ export const pharmacies: IPharmacy[] = [
     parentId: 1,
     region: {
       id: 2,
+      parentId: -1,
+
       name: "Тирасполь",
       population: 200000,
       isDeleted: false,
     },
-    name: "АПТЪЕКА",
+    name: "АПТЪЕКА11",
     isDeleted: false,
     isMode: false,
     isNetwork: true,
@@ -36,11 +40,13 @@ export const pharmacies: IPharmacy[] = [
     parentId: 1,
     region: {
       id: 3,
+      parentId: -1,
+
       name: "Тирасполь",
       population: 200000,
       isDeleted: false,
     },
-    name: "АПТЪЕКА",
+    name: "АПТЪЕКА222",
     isDeleted: false,
     isMode: false,
     isNetwork: true,
@@ -51,11 +57,13 @@ export const pharmacies: IPharmacy[] = [
     parentId: 3,
     region: {
       id: 4,
+      parentId: -1,
+
       name: "Бендеры",
       population: 200000,
       isDeleted: false,
     },
-    name: "АПТЪЕКА",
+    name: "АПТЪЕКА333",
     isDeleted: false,
     isMode: false,
     isNetwork: true,
@@ -66,11 +74,13 @@ export const pharmacies: IPharmacy[] = [
     parentId: 3,
     region: {
       id: 5,
+      parentId: -1,
+
       name: "Тирасполь",
       population: 200000,
       isDeleted: false,
     },
-    name: "АПТЪЕКА",
+    name: "АПТЪЕКА444",
     isDeleted: false,
     isMode: false,
     isNetwork: true,
@@ -81,11 +91,13 @@ export const pharmacies: IPharmacy[] = [
     parentId: 5,
     region: {
       id: 6,
+      parentId: -1,
+
       name: "Тирасполь",
       population: 200000,
       isDeleted: false,
     },
-    name: "АПТЪЕКА",
+    name: "АПТЪЕКА555",
     isDeleted: false,
     isMode: false,
     isNetwork: true,

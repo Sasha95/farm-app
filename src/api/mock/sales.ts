@@ -10,6 +10,7 @@ export const sales: ISales[] = [
       ath: {
         id: 1,
         code: "FF0A",
+        parentId: -1,
         name: "Стамотологические препараты",
         isDeleted: false,
       },
@@ -29,6 +30,8 @@ export const sales: ISales[] = [
       parentId: -1,
       region: {
         id: 1,
+        parentId: -1,
+
         name: "Тирасполь",
         population: 200000,
         isDeleted: false,
@@ -52,6 +55,7 @@ export const sales: ISales[] = [
       id: 2,
       ath: {
         id: 2,
+        parentId: -1,
         code: "FF0A",
         name: "Стамотологические препараты",
         isDeleted: false,
@@ -72,6 +76,8 @@ export const sales: ISales[] = [
       parentId: -1,
       region: {
         id: 2,
+        parentId: -1,
+
         name: "Тирасполь",
         population: 200000,
         isDeleted: false,
@@ -95,6 +101,7 @@ export const sales: ISales[] = [
       id: 3,
       ath: {
         id: 3,
+        parentId: -1,
         code: "FF0A",
         name: "Стамотологические препараты",
         isDeleted: false,
@@ -115,6 +122,8 @@ export const sales: ISales[] = [
       parentId: -1,
       region: {
         id: 3,
+        parentId: -1,
+
         name: "Тирасполь",
         population: 200000,
         isDeleted: false,
@@ -138,6 +147,7 @@ export const sales: ISales[] = [
       id: 4,
       ath: {
         id: 4,
+        parentId: -1,
         code: "FF0A",
         name: "Стамотологические препараты",
         isDeleted: false,
@@ -158,6 +168,8 @@ export const sales: ISales[] = [
       parentId: -1,
       region: {
         id: 4,
+        parentId: -1,
+
         name: "Тирасполь",
         population: 200000,
         isDeleted: false,
@@ -181,6 +193,7 @@ export const sales: ISales[] = [
       id: 5,
       ath: {
         id: 5,
+        parentId: -1,
         code: "FF0A",
         name: "Стамотологические препараты",
         isDeleted: false,
@@ -201,6 +214,8 @@ export const sales: ISales[] = [
       parentId: -1,
       region: {
         id: 5,
+        parentId: -1,
+
         name: "Тирасполь",
         population: 200000,
         isDeleted: false,
@@ -224,6 +239,7 @@ export const sales: ISales[] = [
       id: 6,
       ath: {
         id: 6,
+        parentId: -1,
         code: "FF0A",
         name: "Стамотологические препараты",
         isDeleted: false,
@@ -244,6 +260,8 @@ export const sales: ISales[] = [
       parentId: -1,
       region: {
         id: 6,
+        parentId: -1,
+
         name: "Тирасполь",
         population: 200000,
         isDeleted: false,

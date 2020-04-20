@@ -9,6 +9,7 @@ export const preparations: IDrug[] = [
     isGeneric: false,
     ath: {
       id: 1,
+      parentId: -1,
       name: "Стамотологические препараты",
       code: "A01",
       isDeleted: false,
@@ -28,6 +29,7 @@ export const preparations: IDrug[] = [
     isGeneric: false,
     ath: {
       id: 2,
+      parentId: -1,
       name: "Стамотологические препараты",
       code: "A01",
       isDeleted: false,
@@ -47,6 +49,7 @@ export const preparations: IDrug[] = [
     isGeneric: false,
     ath: {
       id: 1,
+      parentId: -1,
       name: "Стамотологические препараты",
       code: "A01",
       isDeleted: false,
@@ -66,6 +69,7 @@ export const preparations: IDrug[] = [
     isGeneric: false,
     ath: {
       id: 1,
+      parentId: -1,
       name: "Стамотологические препараты",
       code: "A01",
       isDeleted: false,
@@ -85,6 +89,7 @@ export const preparations: IDrug[] = [
     isGeneric: false,
     ath: {
       id: 1,
+      parentId: -1,
       name: "Стамотологические препараты",
       code: "A01",
       isDeleted: false,
@@ -104,6 +109,7 @@ export const preparations: IDrug[] = [
     isGeneric: false,
     ath: {
       id: 5,
+      parentId: -1,
       name: "Стамотологические препараты",
       code: "A01",
       isDeleted: false,
@@ -123,6 +129,7 @@ export const preparations: IDrug[] = [
     isGeneric: false,
     ath: {
       id: 1,
+      parentId: -1,
       name: "Стамотологические препараты",
       code: "A01",
       isDeleted: false,
@@ -142,6 +149,7 @@ export const preparations: IDrug[] = [
     isGeneric: false,
     ath: {
       id: 3,
+      parentId: -1,
       name: "Стамотологические препараты",
       code: "A01",
       isDeleted: false,
