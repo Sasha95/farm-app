@@ -1,6 +1,6 @@
 import React from "react"
 import { Typography } from "@material-ui/core"
-import TreeList, { Editing, SearchPanel, Column, RequiredRule, Selection, Sorting, Scrolling, Paging, Pager, FilterRow } from "devextreme-react/tree-list"
+import TreeList, { Editing, SearchPanel, Column, RequiredRule, Selection, Sorting, Scrolling, Paging, Pager } from "devextreme-react/tree-list"
 import { vendors } from "../../../api/mock/vendors"
 
 export const Produced = () => {

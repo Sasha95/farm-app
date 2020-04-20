@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -6,6 +6,9 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import boy from "../../resources/boy.svg"
+import { useDispatch, useSelector } from 'react-redux';
+import { authSelector } from '../../store/auth/AuthSelector';
+import { login } from '../../store/auth/AuthActions';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -34,6 +37,16 @@ const useStyles = makeStyles((theme) => ({
 
 export const SignIn = () => {
     const classes = useStyles();
+    const dispatch = useDispatch();
+    const selector = useSelector(authSelector);
+    const handleClick = () => {
+    }
+
+    useEffect(() => {
+        dispatch(login({ login: "1", password: "1" }))
+    }, [])
+
+
     return (
         <Container component="main" maxWidth="xs">
             <CssBaseline />
@@ -71,6 +84,7 @@ export const SignIn = () => {
                         variant="contained"
                         color="primary"
                         className={classes.submit}
+                        onClick={handleClick}
                     >
                         Войти
                     </Button>

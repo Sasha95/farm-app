@@ -1,11 +1,7 @@
 import React from "react"
 import { Typography } from "@material-ui/core"
-import TreeList, { Editing, SearchPanel, Column, RequiredRule, Selection, Sorting, Scrolling, Paging, Pager, HeaderFilter, FilterRow } from "devextreme-react/tree-list"
+import TreeList, { Editing, SearchPanel, Column, RequiredRule, Selection, Sorting, Scrolling, Paging, Pager, HeaderFilter } from "devextreme-react/tree-list"
 import { sales } from "../../api/mock/sales"
-
-function getOrderDay(rowData: any) {
-    return (new Date(rowData.OrderDate)).getDay();
-}
 
 export const Sales = () => {
     const allowedPageSizes = [5, 10, 20];
@@ -19,22 +15,6 @@ export const Sales = () => {
         }
     }
 
-    const calculateFilterExpression = (value: any, selectedFilterOperations: any, target: any) => {
-        let column = 'date';
-        if (target === 'headerFilter' && value === 'weekends') {
-            return [[getOrderDay, '=', 0], 'or', [getOrderDay, '=', 6]];
-        }
-        // return column.defaultCalculateFilterExpression.apply('date', arguments);
-    }
-    const orderHeaderFilter = (data: any) => {
-        data.dataSource.postProcess = (results: any) => {
-            results.push({
-                text: 'Weekends',
-                value: 'weekends'
-            });
-            return results;
-        };
-    }
     return (
         <Typography>
             <TreeList
@@ -47,12 +27,6 @@ export const Sales = () => {
                 onCellPrepared={onCellPrepared}
             >
                 <HeaderFilter visible={true} />
-                {/* <FilterRow applyFilter={{
-                    key: 'auto',
-                    name: 'Immediately'
-                }}
-                    visible={true}
-                /> */}
                 <Scrolling mode="standard" />
                 <Paging
                     enabled={true}
@@ -89,11 +63,9 @@ export const Sales = () => {
                     alignment="right"
                     dataType="date"
                     allowHeaderFiltering={false}
-                    calculateFilterExpression={calculateFilterExpression}
                     caption={"Дата продажи"}
                     dataField={"date"}>
                     <RequiredRule />
-                    {/* <HeaderFilter dataSource={orderHeaderFilter} /> */}
                 </Column>
                 <Column
                     allowHeaderFiltering={false}
