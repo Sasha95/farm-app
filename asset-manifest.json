@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/farm-app/static/css/main.5f361e03.chunk.css",
-    "main.js": "/farm-app/static/js/main.bce43015.chunk.js",
-    "main.js.map": "/farm-app/static/js/main.bce43015.chunk.js.map",
+    "main.css": "/farm-app/static/css/main.523f09c5.chunk.css",
+    "main.js": "/farm-app/static/js/main.618c1974.chunk.js",
+    "main.js.map": "/farm-app/static/js/main.618c1974.chunk.js.map",
     "runtime-main.js": "/farm-app/static/js/runtime-main.78fbc112.js",
     "runtime-main.js.map": "/farm-app/static/js/runtime-main.78fbc112.js.map",
-    "static/js/2.eb278f9f.chunk.js": "/farm-app/static/js/2.eb278f9f.chunk.js",
-    "static/js/2.eb278f9f.chunk.js.map": "/farm-app/static/js/2.eb278f9f.chunk.js.map",
+    "static/js/2.3dcbafd4.chunk.js": "/farm-app/static/js/2.3dcbafd4.chunk.js",
+    "static/js/2.3dcbafd4.chunk.js.map": "/farm-app/static/js/2.3dcbafd4.chunk.js.map",
     "index.html": "/farm-app/index.html",
-    "precache-manifest.d4781bb3526369d81a00e97b537a40f0.js": "/farm-app/precache-manifest.d4781bb3526369d81a00e97b537a40f0.js",
+    "precache-manifest.8196869b563745ba4ba700c30f291637.js": "/farm-app/precache-manifest.8196869b563745ba4ba700c30f291637.js",
     "service-worker.js": "/farm-app/service-worker.js",
-    "static/css/main.5f361e03.chunk.css.map": "/farm-app/static/css/main.5f361e03.chunk.css.map",
-    "static/js/2.eb278f9f.chunk.js.LICENSE.txt": "/farm-app/static/js/2.eb278f9f.chunk.js.LICENSE.txt",
+    "static/css/main.523f09c5.chunk.css.map": "/farm-app/static/css/main.523f09c5.chunk.css.map",
+    "static/js/2.3dcbafd4.chunk.js.LICENSE.txt": "/farm-app/static/js/2.3dcbafd4.chunk.js.LICENSE.txt",
     "static/media/boy.svg": "/farm-app/static/media/boy.8547ceae.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.78fbc112.js",
-    "static/js/2.eb278f9f.chunk.js",
-    "static/css/main.5f361e03.chunk.css",
-    "static/js/main.bce43015.chunk.js"
+    "static/js/2.3dcbafd4.chunk.js",
+    "static/css/main.523f09c5.chunk.css",
+    "static/js/main.618c1974.chunk.js"
   ]
 }
