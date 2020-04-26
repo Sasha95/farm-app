@@ -4,6 +4,9 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { Typography, makeStyles, Theme, createStyles, Button } from '@material-ui/core';
+import { logout } from '../../store/auth/authActions';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -28,6 +31,12 @@ export const Profile = () => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+    const dispath = useDispatch();
+    const history = useHistory();
+    const logoutHandler = () => {
+        dispath(logout())
+        history.push('/farm-app/auth/')
+    }
     const classes = useStyles();
 
     return (
@@ -61,7 +70,7 @@ export const Profile = () => {
                     <MenuItem className={classes.img} onClick={handleClose}><AccountCircle /></MenuItem>
                     <MenuItem onClick={handleClose}>Чолак Александр</MenuItem>
                     <MenuItem onClick={handleClose}>Админ</MenuItem>
-                    <Button color="inherit">Выйти</Button>
+                    <Button onClick={logoutHandler} color="inherit">Выйти</Button>
                 </div>
             </Menu>
         </div>

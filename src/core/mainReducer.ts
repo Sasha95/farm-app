@@ -1,6 +1,6 @@
 import { Action, combineReducers } from "redux";
 import { ThunkAction, ThunkDispatch } from "redux-thunk";
-import { authReducer } from "../store/auth/AuthState";
+import { authReducer } from "../store/auth/authState";
 
 export const createMainReducer = () =>
   combineReducers({
